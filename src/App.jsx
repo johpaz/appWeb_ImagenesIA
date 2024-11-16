@@ -5,6 +5,7 @@ import { Box } from '@chakra-ui/react'
 import Home from './components/Home'
 import Navbar from './components/NavBar'
 import Footer from './components/Footer';
+import ImageGenerationSDxl from './components/ImageSDxl';
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
       <Box p={4}>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="/stable-diffusion-xl" element={<ImageGenerationSDxl/>} />
         </Routes> 
       </Box>
       <Footer/>

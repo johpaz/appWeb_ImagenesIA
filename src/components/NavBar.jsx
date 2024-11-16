@@ -32,7 +32,7 @@ const Navbar = ({ isAuthenticated, user }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const menuItems = [
-    { name: "Stable Diffusion XL", href: "#stable-diffusion-xl" },
+    { name: "Stable Diffusion XL", href: "/stable-diffusion-xl" },
     { name: "Stable Diffusion 3.5", href: "#stable-diffusion-3.5" },
     { name: "MidJourney", href: "#midjourney" },
     { name: "Flux Dev 0.1", href: "#flux-dev" },
