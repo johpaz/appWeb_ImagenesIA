@@ -37,6 +37,8 @@ const Navbar = ({ isAuthenticated, user }) => {
     { name: "Stable Diffusion 3.5", href: "/stable-diffusion-3.5" },
     { name: "MidJourney", href: "/midjourney" },
     { name: "Flux Dev 0.1", href: "/flux-dev" },
+    { name: "Video IA", href: "/video" },
+    { name: "Chat IA Mistral", href: "/chat" },
   ];
 
   return (

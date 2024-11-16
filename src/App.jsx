@@ -8,6 +8,8 @@ import ImageGenerationSDxl from './components/ImageSDxl';
 import ImageGenerationSD3 from './components/ImageSD3.5';
 import ImageGenerationMid from './components/ImageMidjourney';
 import ImageGenerationFlux from './components/ImageFlux';
+import VideoGeneration from './components/Video';
+import TextGeneration from './components/Chat';
 
 function App() {
   
@@ -21,6 +23,8 @@ function App() {
           <Route path="/stable-diffusion-3.5" element={<ImageGenerationSD3/>} />
           <Route path="/midjourney" element={<ImageGenerationMid/>} />
           <Route path="/flux-dev" element={<ImageGenerationFlux/>} />
+          <Route path="/video" element={<VideoGeneration/>} />
+          <Route path="/chat" element={<TextGeneration/>} />          
         </Routes> 
       </Box>
       <Footer/>
