@@ -13,8 +13,10 @@ import {
     FormControl,
     FormLabel,
     useToast,
+    HStack,
   } from '@chakra-ui/react';
 import { useState } from 'react';
+import { DownloadIcon } from '@chakra-ui/icons';
 
   const hf = new HfInference(import.meta.env.VITE_HUGGINGFACE_API_KEY)
 
@@ -24,7 +26,7 @@ import { useState } from 'react';
     const [loading, setLoading] = useState(false);
     const { colorMode } = useColorMode();
     const toast = useToast();
-
+    const [imageBlob, setImageBlob] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,6 +40,7 @@ import { useState } from 'react';
           console.log(result);
           
           setImageUrl(URL.createObjectURL(result));
+          setImageBlob(result)
           toast({
             title: 'Exitos',
             description: "Imagen generada con exito.",
@@ -60,6 +63,19 @@ import { useState } from 'react';
         }
       }
 
+
+      const handleDownload = () => {
+        if (imageBlob) {
+          const url = window.URL.createObjectURL(imageBlob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', `generated-image-${Date.now()}.png`);
+          document.body.appendChild(link);
+          link.click();
+          link.parentNode.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        }
+      };
     return (
         <Container maxW="4xl" mx="auto" p={6} mt={8}>
             <Box
@@ -114,7 +130,18 @@ import { useState } from 'react';
                                 Imagen Generada:
                             </Heading>
                             <Image src={imageUrl} alt="Generated" className="rounded-md shadow-lg" borderRadius="md" />
+
+                            <HStack justifyContent="center" mt={4}>
+                                <Button
+                                leftIcon={<DownloadIcon />}
+                                colorScheme="blue"
+                                onClick={handleDownload}
+                                >
+                                Descargar Imagen
+                                </Button>
+                            </HStack>
                             </Box>
+                           
                         )}  
 
                         {loading && (
