@@ -40,7 +40,7 @@ const TextGeneration = () => {
       for await (const chunk of hf.chatCompletionStream({
         model: 'mistralai/Mistral-7B-Instruct-v0.3',
         messages: [{ role: 'user', content: input }],
-        max_tokens: 500,
+        max_tokens: 1000,
         temperature: 0.1,
         seed: 0,
       })) {
