@@ -1,7 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App.jsx';
-import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';  // Para las rutas
 import { ChakraProvider,ColorModeScript } from '@chakra-ui/react';  // Para Chakra UI
 import theme from '../src/utils/theme.js';  

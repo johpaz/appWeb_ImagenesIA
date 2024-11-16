@@ -21,9 +21,10 @@ import {
   DrawerCloseButton,
   DrawerBody,
   useDisclosure,
+  Link
 } from "@chakra-ui/react";
 import { HamburgerIcon, SunIcon, MoonIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+
 
 const Navbar = ({ isAuthenticated, user }) => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -33,9 +34,9 @@ const Navbar = ({ isAuthenticated, user }) => {
 
   const menuItems = [
     { name: "Stable Diffusion XL", href: "/stable-diffusion-xl" },
-    { name: "Stable Diffusion 3.5", href: "#stable-diffusion-3.5" },
-    { name: "MidJourney", href: "#midjourney" },
-    { name: "Flux Dev 0.1", href: "#flux-dev" },
+    { name: "Stable Diffusion 3.5", href: "/stable-diffusion-3.5" },
+    { name: "MidJourney", href: "/midjourney" },
+    { name: "Flux Dev 0.1", href: "/flux-dev" },
   ];
 
   return (
@@ -53,10 +54,9 @@ const Navbar = ({ isAuthenticated, user }) => {
         {/* Links de Menú para pantallas grandes */}
         <HStack spacing={8} alignItems="center">
          <Link href="/">
-          <Text fontSize="lg" fontWeight="bold" color={useColorModeValue("purple.500", "purple.300")}>
-            Generador IA
-          </Text>
-          </Link>
+          <Avatar src="/logo.png"/>
+          
+        </Link>
           <HStack
             as="nav"
             spacing={4}

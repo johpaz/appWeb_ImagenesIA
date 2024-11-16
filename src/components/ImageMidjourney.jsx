@@ -8,7 +8,6 @@ import {
     Image,
     Spinner,
     useColorMode,
-    Container,
     Flex,
     FormControl,
     FormLabel,
@@ -20,7 +19,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
 
   const hf = new HfInference(import.meta.env.VITE_HUGGINGFACE_API_KEY)
 
-  const ImageGenerationSDxl = () => {
+  const ImageGenerationMid = () => {
     const [prompt, setPrompt] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [loading, setLoading] = useState(false);
@@ -34,7 +33,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
     
         try {
           const result = await hf.textToImage({
-            model: 'stabilityai/stable-diffusion-xl-base-1.0',
+            model: 'Jovie/Midjourney',
             inputs: prompt,
           });
           console.log(result);
@@ -87,7 +86,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
             >
                 <Flex direction="column" align="center">
                     <Heading as="h1" size="lg" mb={4} textAlign="center" color={colorMode === 'light' ? 'gray.800' : 'white'}>
-                        Generador de Imágenes con IA Modelo Stable diffusion XL
+                        Generador de Imágenes con IA Modelo MidJourney
                     </Heading>
                     <Text fontSize="lg" mb={4} color={colorMode === 'light' ? 'gray.600' : 'gray.300'}>
                         Ingresa una instrucción para generar una imagen única usando inteligencia artificial.
@@ -114,8 +113,8 @@ import { DownloadIcon } from '@chakra-ui/icons';
                             <Button
                             type="submit"
                             colorScheme="blue"
-                            w="full"
                             marginTop="1em"
+                            w="full"
                             isLoading={loading}
                             loadingText="Generando..."
                             transition="0.3s"
@@ -157,4 +156,4 @@ import { DownloadIcon } from '@chakra-ui/icons';
 
   }
 
-  export default ImageGenerationSDxl
+  export default ImageGenerationMid

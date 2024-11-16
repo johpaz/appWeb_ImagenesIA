@@ -20,7 +20,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
 
   const hf = new HfInference(import.meta.env.VITE_HUGGINGFACE_API_KEY)
 
-  const ImageGenerationSDxl = () => {
+  const ImageGenerationSD3 = () => {
     const [prompt, setPrompt] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [loading, setLoading] = useState(false);
@@ -34,7 +34,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
     
         try {
           const result = await hf.textToImage({
-            model: 'stabilityai/stable-diffusion-xl-base-1.0',
+            model: 'stabilityai/stable-diffusion-3.5-large',
             inputs: prompt,
           });
           console.log(result);
@@ -77,7 +77,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
         }
       };
     return (
-        <Box maxW="4xl" mx="auto" p={6} mt={8} w="100%" minH="30em">
+        <Box maxW="4xl" mx="auto" p={6} mt={8} w="100%" minHeight="30em">
             <Box
                 p={6}
                 borderRadius="lg"
@@ -87,7 +87,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
             >
                 <Flex direction="column" align="center">
                     <Heading as="h1" size="lg" mb={4} textAlign="center" color={colorMode === 'light' ? 'gray.800' : 'white'}>
-                        Generador de Imágenes con IA Modelo Stable diffusion XL
+                        Generador de Imágenes con IA Modelo Stable diffusion 3.5
                     </Heading>
                     <Text fontSize="lg" mb={4} color={colorMode === 'light' ? 'gray.600' : 'gray.300'}>
                         Ingresa una instrucción para generar una imagen única usando inteligencia artificial.
@@ -117,6 +117,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
                             w="full"
                             marginTop="1em"
                             isLoading={loading}
+                            borderRadius="full"
                             loadingText="Generando..."
                             transition="0.3s"
                             _hover={{ transform: 'scale(1.05)' }}
@@ -157,4 +158,4 @@ import { DownloadIcon } from '@chakra-ui/icons';
 
   }
 
-  export default ImageGenerationSDxl
+  export default ImageGenerationSD3
