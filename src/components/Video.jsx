@@ -14,6 +14,7 @@ import {
     FormLabel,
     Select,
     useToast,
+    Textarea,
   } from '@chakra-ui/react';
 import { HfInference } from '@huggingface/inference';
 
@@ -121,7 +122,7 @@ const VideoGeneration = () => {
                         <FormLabel htmlFor="prompt" color={colorMode === 'light' ? 'gray.700' : 'gray.300'}>
                             Instrucción:
                         </FormLabel>
-                        <Input
+                        <Textarea
                             id="prompt"
                             type="text"
                             value={prompt}

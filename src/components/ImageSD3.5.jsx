@@ -14,6 +14,7 @@ import {
     FormLabel,
     useToast,
     HStack,
+    Textarea,
   } from '@chakra-ui/react';
 import { useState } from 'react';
 import { DownloadIcon } from '@chakra-ui/icons';
@@ -98,7 +99,7 @@ import { DownloadIcon } from '@chakra-ui/icons';
                             <FormLabel htmlFor="prompt" color={colorMode === 'light' ? 'gray.700' : 'gray.300'}>
                                 Instruccion de imagen:
                             </FormLabel>
-                            <Input
+                            <Textarea
                                 id="prompt"
                                 type="text"
                                 value={prompt}
